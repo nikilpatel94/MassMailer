@@ -15,7 +15,7 @@ public class ExcelReader {
         XSSFSheet sheet=wb.getSheetAt(0);
         FormulaEvaluator fe=wb.getCreationHelper().createFormulaEvaluator();
         int cellindex,rc=0;
-        double allow=0,expe=0;
+        int allow=0,expe=0;
         String data="",uname="",uemail="";
         for(Row r:sheet)
         {
@@ -48,13 +48,13 @@ public class ExcelReader {
                         case 1:
                             uemail=data;break;
                         case 2:
-                            allow=Double.parseDouble(data);break;
+                            allow=(int)Double.parseDouble(data);break;
                         case 3:
-                            expe=Double.parseDouble(data);break;
+                            expe=(int)Double.parseDouble(data);break;
                     }
                 }
                 System.out.println("Sending mail to: "+uname+"->"+uemail+"->"+allow+"->"+expe);
-                new MailerEngine().sendMail(uname, uemail, allow, expe);
+              //  new MailerEngine().sendMail(uname, uemail, allow, expe);
                 }
         }
         

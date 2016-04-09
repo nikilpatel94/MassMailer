@@ -31,7 +31,7 @@ public class MailerEngine {
     }
     
       
-    public void sendMail(String uname,String uemail,double allow,double expe)
+    public void sendMail(String uname,String uemail,int allow,int expe)
     {
                 Calendar now = Calendar.getInstance();
                 final String username = "nikilp@evosysglobal.com";
@@ -60,7 +60,8 @@ public class MailerEngine {
 				InternetAddress.parse(uemail));
 			message.setSubject("Reimbusment of "+currmonth);
 			message.setText("Dear "+uname+","
-				+ "\n\nCan you please confirm receipt of "+currmonth+"-"+year+""+" Allowance QAR "+allow+"/- Expense Re-imbursement QAR "+expe+"/- ,total Amount QAR "+(allow+expe)+"/-.");
+				+ "\n\nCan you please confirm receipt of "+currmonth+"-"+year+""+" "
+                                + "Allowance QAR "+allow+"/- Expense Re-imbursement QAR "+expe+"/- ,total Amount QAR "+(allow+expe)+"/-.");
 
 			Transport.send(message);
 
